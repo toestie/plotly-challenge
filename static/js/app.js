@@ -17,7 +17,7 @@ async function buildMetadata(sample) {
     });
 
     // BONUS: Build the Gauge Chart
-    // buildGauge(data.WFREQ);
+    buildGauge(data.WFREQ);
 };
 
 async function buildCharts(sample) {

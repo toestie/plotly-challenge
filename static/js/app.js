@@ -25,7 +25,7 @@ async function buildCharts(sample) {
   // @TODO: Use `d3.json` to fetch the sample data for the plots
     let dataFile = await d3.json("/samples/"+sample);
     // @TODO: Build a Bubble Chart using the sample data
-    console.log(Object.entries(dataFile));
+    // console.log(Object.entries(dataFile));
     const plotData = {
       x: dataFile.otu_ids,
       y: dataFile.sample_values,
@@ -44,6 +44,14 @@ async function buildCharts(sample) {
     // @TODO: Build a Pie Chart
     // HINT: You will need to use slice() to grab the top 10 sample_values,
     // otu_ids, and labels (10 each).
+    const pieData = [{
+      values: dataFile.sample_values.slice(0,10),
+      labels: dataFile.otu_ids.slice(0,10),
+      hovertext: dataFile.otu_labels.slice(0,10),
+      type: "pie"
+    }];
+
+    Plotly.newPlot("pie", pieData);
     
 }
 
